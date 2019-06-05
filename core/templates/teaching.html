@@ -1,0 +1,17 @@
+﻿{% extends 'sample.html' %}
+
+{% block content %}
+<div class="jumbotron" style="text-align: center">
+    <h2><strong>База знаний по продуктам Kaspersky</strong></h2>
+    <h2><strong>Выберите продукт...</strong></h2>
+    <br>
+    <div class="btn-group" role="group">
+        <a class="btn btn-secondary" href="/teaching/antivirus/">Антивирусные продукты</a>
+        <a class="btn btn-secondary" href="/teaching/kpm/">Kaspersky Password Manager</a>
+        <a class="btn btn-secondary" href="/teaching/ksk/">Kaspersky Safe Kids</a>
+        <a class="btn btn-secondary" href="/teaching/ksec/">Kaspersky Secure Connection</a>
+        <a class="btn btn-secondary" href="/teaching/myk/">My Kaspersky</a>
+    </div>
+    <img src="/static/image/kas_logo.png">
+</div>
+    {% endblock %}

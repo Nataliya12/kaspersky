@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>We are Bosch</title>
+    {% load staticfiles %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+    <img src="{% static 'image/bosch1.jpg' %}" class="img-thumbnail">
+    <nobr>Bosch в России </nobr>
+    <div class="ref">
+        <a class="btn btn-secondary" href="/" role="button">На главную</a>
+    </div>
+    <hr>
+    <div class="jumbotron" style="text-align: center">
+        <h2><strong>OOO "Robert Bosch" в России</strong></h2><br>
+        <img src="/static/image/zdanie.jpg" class="img-rounded"><br>
+        <div class="card-block">
+            {% for Text in TextAll %}
+            <p>{{Text.bosch|linebreaksbr}}</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="container">
+        <hr><p>
+            &copy; Разработчик: Сафина Наталья, 2019
+        </p>
+    </div>
+</body>
+</html>

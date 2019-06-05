@@ -1,0 +1,40 @@
+{% extends "sample.html" %}
+
+{% block content %}
+<div class="jumbotron" style="text-align: center">
+    <div class="container" style="text-align: center">
+
+        {% if questions_for_user_false %}
+
+        {% for i in questions_for_user_false %}
+        {% if forloop.first %}
+        <form id="formsubmit" enctype="multipart/form-data" class="form-2" method="post" action="#">
+            {% csrf_token %}
+            <h3 class="quest_numb"><span class="label label-primary">Вопрос</span></h3>
+            <br />
+            <div class="vopros">
+                <p>{{i.questions.name|safe}}</p>
+            </div>
+            {% for answer in i.questions.modeltestanswer_set.all %}
+            <div class="radio1">
+                <label>
+                    <input required type="radio" name="optionsradios" id="optionsRadios1" value="{{answer.id}}">
+                    {{answer.otvet}}
+                </label>
+            </div>
+            {% endfor %}
+            <input type="hidden" class="form-control" id="idvopros" name="idvopros" value="{{i.id}}">
+            <br />
+            <input id="clickjsone" type="submit" class="btn btn-secondary" value="Отправить ответ"/ name="oneanswer">
+        </form>
+        {% endif %}
+        {% endfor %}
+        {% else %}
+
+        <h4><em>Тестирование завершено! Вы набрали {{sum}} баллов из {{questions_for_user_all.count}}</em></h4>
+        <a href="/tests/"> Нажмите здесь, чтобы перейти в список тестирований.</a>
+
+        {% endif %}
+    </div>
+</div>
+    {% endblock %}

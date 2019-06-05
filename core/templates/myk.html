@@ -1,0 +1,90 @@
+﻿{% extends 'sample.html' %}
+
+{% block content %}
+<div class="jumbotron">
+    <h2><strong>Сервис My Kaspersky (https://my.kaspersky.com)</strong></h2><br>
+    <div id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="card">
+            <div class="card-header" role="tab" id="headingOne">
+                <h4 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        Начало работы в My Kaspersky
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div class="card-block">
+                    {% for Text in TextAll %}
+                    <div class="png">
+                        <img src="/static/image/myk.png"><br><br>
+                    </div>
+                    <p2>{{Text.myk|linebreaksbr}}</p2>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" role="tab" id="headingTwo">
+                <h4 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Защита устройств
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="card-block">
+                    {% for Text in TextAll %}
+                    <p2>{{Text.myk_device1|linebreaksbr}}</p2>
+                    {% endfor %}
+                    <div class="png">
+                        <img src="/static/image/myk_pic.png"><br><br>
+                    </div>
+                    {% for Text in TextAll %}
+                    <p2>{{Text.myk_device2|linebreaksbr}}</p2>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" role="tab" id="headingThree">
+                <h4 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Управление лицензиями
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="card-block">
+                    {% for Text in TextAll %}
+                    <p2>{{Text.myk_license|linebreaksbr}}</p2>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" role="tab" id="headingFour">
+                <h4 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Управление учетной записью
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+                <div class="card-block">
+                    {% for Text in TextAll %}
+                    <p2>{{Text.myk_user|linebreaksbr}}</p2>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="duo1">
+        <a class="btn btn-secondary" href="{% url 'ksec' %}" role="button">Назад</a>
+    </div>
+    <div class="duo2">
+        <a class="btn btn-secondary" href="{% url 'teaching' %}" role="button">На страницу "База знаний"</a>
+    </div>
+</div>
+        {% endblock %}
